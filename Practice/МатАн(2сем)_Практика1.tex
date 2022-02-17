@@ -1,0 +1,112 @@
+\documentclass[14pt]{article}
+\usepackage[russian]{babel}
+\usepackage{graphics}
+\usepackage{colortbl}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[unicode,pdftex]{hyperref}
+\usepackage{wasysym}
+\usepackage{geometry}
+\linespread{1}
+\usepackage[unicode, pdftex]{hyperref}
+\geometry{
+	a4paper,
+	top=10mm,
+	bottom=10mm,
+	left=5mm
+}
+\begin{document} 
+	\LARGE
+	\begin{center}
+		Практика по математическому анализу занятие 1
+	\end{center}
+	\normalsize
+	7) $\int \frac{dx}{7x^2-5} = \frac{1}{7} \int \frac{dx}{x^2-\frac{5}{7}} = \frac{\sqrt{7}}{14\sqrt{5}} \ln |\frac{x-\sqrt{\frac{5}{7}}}{x+\sqrt{\frac{5}{7}}}| +C, \; C \in \mathbb{R}$ \\
+	8) $\int \frac{dx}{3x^2-x^4} = \int \frac{dx}{x^2(3-x^2)} = \frac{1}{3}\int (\frac{1}{x^2}+\frac{1}{3-x^2}) = \frac{1}{3}(-\frac{1}{x}-\frac{1}{2\sqrt{3}}\ln |\frac{x-\sqrt{3}}{x+\sqrt{3}}|)+C, \; C \in \mathbb{R}$ \\
+	9) $\int (2x+5)^{10}dx = 
+	\begin{vmatrix}
+		2x+5 = t \\
+		2dx = dt	
+	\end{vmatrix} = \frac{1}{2}\int t^{10} dt = \frac{(2x+5)^{11}}{22} + C, \; C \in \mathbb{R}$  \\
+	10) $\int \sin (1-4x) dx = -\frac{1}{4} \int \sin (1-4x) d(-4x) = -\frac{1}{4} \int \sin (1-4x) d(1-4x) = \frac{\cos(1-4x)}{4} + C, \; C \in \mathbb{R}$ \\
+	11) $\int \frac{dx}{2x^2-5x+7} = \frac{1}{2} \int \frac{dx}{(x-\frac{5}{4})^2 + \frac{31}{16}} = \begin{vmatrix} x-\frac{5}{4} = t \\ dx = dt  \end{vmatrix} = \frac{1}{2} \int \frac{dt}{t^2 + \frac{31}{16}} = \frac{1}{2\sqrt{\frac{31}{16}}} \arctan{\frac{x-\frac{5}{4}}{\sqrt{\frac{31}{16}}}}+C, \; C \in \mathbb{R}$ \\
+	12) $\int 5^{4-7x} dx = -\frac{1}{7}\int 5^{4-7x} d(4-7x) = -\frac{1}{7} \frac{5^{4-7x}}{\ln5} + C, \; C \in \mathbb{R}$ \\
+	13) $\int \frac{dx}{\sqrt{x+x^2}}=\int \frac{dx}{\sqrt{(x+\frac{1}{2})^2 - \frac{1}{4}}} = \ln|\frac{x}{x+1}|+C, \; C \in \mathbb{R}$ \\
+	14) $\int \frac{6x-7}{3x^2-7x+1}dx=\begin{vmatrix}3x^2+7x=t \\ (6x+7)dx=dt \end{vmatrix} = \int \frac{dt}{t+1}=\ln|3x^2+7x+1| +C, \; C \in \mathbb{R}$ \\
+	15) $\int \left( \frac{x}{x^5+2} \right)^2 dx = \int \frac{x^2}{(x^5+2)^2}dx = \begin{vmatrix} x^5 = t \\ (5x^4) dx = dt \end{vmatrix} = \frac{1}{5}\int \frac{dt}{(t+2)^4} = \frac{1}{5}(-\frac{1}{3(x^5+2)^3})+C, \; C \in \mathbb{R}$ \\
+	16) $\int \frac{xdx}{x^4+6x^2 + 5} = \frac{1}{2} \int \frac{dx^2}{x^4 + 6x^2 + 5} = \frac{1}{2} \int \frac{d(x^2+3)}{(x^2+3)^2-4} = \frac{1}{8} \ln |\frac{x^2+1}{x^2+5}| + C, \; C \in \mathbb{R}$ \\
+	17) $\int x^2\sqrt{x^3 + 1}dx=\begin{vmatrix} x^3 = t \\ (3x^2)dx = dt \end{vmatrix} = \frac{1}{3} \int \sqrt{t+1}d(t+1) = \frac{2(x^3+1)\sqrt{x^3+1}}{9}+C, \; C \int \mathbb{R}$ \\
+	18) $\int x\sqrt{1+x}dx = \begin{vmatrix}\sqrt{1+x}=t \\ \frac{dx}{2\sqrt{1+x}}=dt  \end{vmatrix} = \int (2t^4 -2t^2)dt = \frac{2(\sqrt{x+1})^5}{5} - \frac{2(\sqrt{x+1})^3}{3} + C, \; C \in \mathbb{R}$ \\
+	19) $\int \frac{xdx}{(1-x)^{12}} = \begin{vmatrix}(1-x) = t \\ -dx = dt \end{vmatrix} = \int \frac{t-1}{t^{12}}dt = -\frac{1}{10(1-x)^{10}} + \frac{1}{11(1-x)^{11}}+C, \; C \in \mathbb{R}$ \\
+	20) $\int xe^{-x^2}dx = 
+	\begin{vmatrix}
+		e^{-x^2}=t \\
+		(-e^{-x^2}2x) dx=dt
+	\end{vmatrix} = -\int \frac{dt}{2} = - \frac{e^{-x^2}}{2} + C, \; C \in \mathbb{R}$ \\
+	21) $\int e^{\sqrt{x}} \frac{dx}{\sqrt{x}} = 
+	\begin{vmatrix}
+		\sqrt{x}=t \\
+		\frac{dx}{2\sqrt{x}}=dt	
+	\end{vmatrix} = \int 2e^t dt = 2 e^{\sqrt{x}}+C, \; C \in \mathbb{R}$ \\
+	22) $\int \frac{2^x dx}{\sqrt{1-4^x}} = \begin{vmatrix}
+		2^x = t \\
+		(\ln(2) \cdot 2^x)dx = dt
+	\end{vmatrix}= \frac{1}{\ln(2)} \int \frac{dt}{\sqrt{1-t^2}}=\frac{1}{\ln(2)}\arcsin(2^x) + C, \; C \int \mathbb{R}$ \\
+	23) $\int \frac{e^{2x}dx}{\sqrt[4]{1+e^x}}=\begin{vmatrix}
+		1+e^x=t \\
+		e^xdx = dt
+	\end{vmatrix} = \int \frac{t-1}{\sqrt[4]{t}}dt = \int (t^{\frac{3}{4}}-t^{-\frac{1}{4}})dt=\frac{4(1+e^x)\sqrt[4]{(1+e^x)^3}}{7} - \frac{4\sqrt[4]{(1+e^x)^3}}{3} + C, \; C \in \mathbb{R}$ \\
+	24) $\int \frac{\ln^2x}{x}dx = \begin{vmatrix}
+		\ln x = t \\
+		\frac{dx}{x} = dt 
+	\end{vmatrix} = \int t^2dt = \frac{\ln^3|x|}{3} + C, \; C \in \mathbb{R}$\\
+	25) $\int \sin^6x \cos x dx = \begin{vmatrix}
+		\sin x = t \\
+		\cos x dx = dt
+	\end{vmatrix} = \int t^6 dt = \frac{sin^7x}{7} + C, \; C \in \mathbb{R}$ \\
+	26) $\int \frac{\sin x}{\sqrt{\cos 2x}}dx = \int \frac{\sin x }{\sqrt{2\cos^2 x - 1}}dx = 
+	\begin{vmatrix}
+		\cos x = t \\
+		-\sin x dx=dt  	
+	\end{vmatrix} = -\frac{1}{\sqrt{2}}\int \frac{dt}{\sqrt{t^2-\frac{1}{2}}} = -\frac{1}{2} \ln|\cos x + \sqrt{\cos^2x-\frac{1}{2}}|+C, \; C \in \mathbb{R}$ \\
+	27)  $\int \frac{\sqrt[4]{\tan x}}{\sin^2x}dx = \begin{vmatrix}
+		\cot x = t \\
+		-\frac{dx}{\sin^2x} = dt 
+	\end{vmatrix} = \int \sqrt[4]{\frac{1}{t}}dt = \frac{4\cot^{\frac{3}{4}}x}{3}+C, \; C \in \mathbb{R}$ \\
+	28) $\int \frac{\ln \arccos x dx}{\sqrt{1-x^2}\arccos x} = \begin{vmatrix}
+		t = \arccos x \\
+		dt = -\frac{dx}{\sqrt{1-x^2}}
+	\end{vmatrix} = -\int \frac{\ln t }{t} dt = \begin{vmatrix}
+		\ln t = q \\
+		\frac{dt}{t} = dq
+	\end{vmatrix} = -\int q dq = -\frac{(\ln(\arccos x))^2}{2} + C, \; C \in \mathbb{R}$ \\
+	29) $\int \frac{3x-2}{2-3x+x^2}dx = \int (\frac{4}{x-2} - \frac{1}{x-1})dx = 4\ln|x-2| - \ln|x-1| + C, \; C \in \mathbb{R}$ \\
+	33) $\int x e^{-x}dx = \begin{vmatrix}
+		u = x & dx = du \\
+		e^{-x}dx = dv & v=-e^{-x}
+	\end{vmatrix}= x\cdot (-e^{-x})+\int e^{-x}dx = x\cdot (-e^{-x}) - e^{-x} + C, \; C \in \mathbb{R}$ \\
+	34) $\int x \ln x dx = \begin{vmatrix}
+		\ln x = u & \frac{dx}{x} = du \\
+		xdx = dv & v = \frac{x^2}{2} 
+	\end{vmatrix} = \ln x \frac{x^2}{2} - \int \frac{x}{2} dx = \ln x \frac{x^2}{x} - \frac{x^2}{4} + C, \; C \in \mathbb{R}$ \\
+	35) $\int \ln x dx = 
+	\begin{vmatrix}
+		u=x  & dv = dx \\
+		\ln x = v & \frac{dx}{x} = dv 	
+	\end{vmatrix} = x \ln x - \int \frac{x}{x} dx = x \ln x - x + C, \; C \in \mathbb{R}$\\
+	36) $\int x^2 \cos (5x-7) dx = \begin{vmatrix}
+		x^2=u & 2xdx = du \\
+		\cos(5x-7)dx = dv & \frac{1}{5} \sin(5x-7)=v 
+	\end{vmatrix} = \frac{1}{5}\sin(5x-7)x^2 - \frac{2}{5}\int x \sin(5x-7)dx =
+	\begin{vmatrix}
+		x=u & dx = du \\
+		\sin(5x-7)dx = dv & -\frac{1}{5} \cos(5x-7)=v	
+	\end{vmatrix} = \frac{1}{5}\sin(5x-7)x^2 - \frac{2}{5}(x(-\frac{1}{5}\cos (5x-7)) + \frac{1}{5}\int \cos (5x-7) dx) =  \\	= \frac{1}{5}x^2\sin(5x-7) - \frac{2}{5}(x(-\frac{1}{5}\cos(5x-7)) + \frac{1}{25} \sin(5x-7)) +C,\; C \in \mathbb{R}$ \\
+	37) $\int \arctan x dx = \begin{vmatrix}
+		x=u & dx = du \\
+		v=\arctan x & dv = \frac{1}{1+x^2}
+	\end{vmatrix} = x \arctan x - \int \frac{x}{1+x^2} dx = x \arctan x - \frac{1}{2}\ln |1+x^2| + C, \; C \in \mathbb{R}$ \\
+	38) $\int x \sin^2 x dx = \int x \frac{1-cos2x}{2} \begin{vmatrix}
+		x = u & dx = du \\
+		\cos 2x dx = dv & \frac{1}{2} \sin 2x = v
+	\end{vmatrix} = x\frac{1}{2} \sin 2x  - \int \cos 2x dx =  \\ = \frac{1}{2}(\frac{x^2}{2} + x\frac{1}{2}\sin 2x - \frac{1}{2} \sin 2x) + C, \; C \in \mathbb{R}$
+\end{document}

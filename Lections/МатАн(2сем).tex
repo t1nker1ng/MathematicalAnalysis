@@ -1,0 +1,369 @@
+\documentclass[14pt]{article}
+\usepackage[russian]{babel}
+\usepackage{graphics}
+\usepackage{colortbl}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[unicode,pdftex]{hyperref}
+\usepackage{wasysym}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\linespread{1}
+\usepackage[unicode, pdftex]{hyperref}
+\geometry{
+	a4paper,
+	top=10mm,
+	bottom=10mm,
+	left=5mm
+}
+\begin{document}
+	\begin{center}
+		\Huge Математический анализ \\
+		\large 2 семестр 
+	\end{center}
+	\normalsize 
+	\section{лекция}
+	\subsection{Понятие первообразной и неопределенного интеграла}
+	\textbf{Определение.} \\
+	$F(x)$ - называется первообразной функцией $f(x)$ на промежутке $a,b$, если $F'(x)=f(x)$ \\
+	\textbf{Определение.} \\
+	Множество первообразных функции $f$ на $a,b$ называется неопределенным интегралом. \\
+	\textbf{Обозначение}:\; $\int f(x) dx$ \\
+	\textbf{Теорема:} \\
+	$\sqsupset F(x)$ - первообразная функции $f(x)$ на $a,b$. Для того, чтобы $G(x)$ была первообразной функции $f(x)$ на $a,b$ необходимо и достаточно, чтобы: $G(x)=F(x)+C, \; C\in \mathbb{R}$ \\
+	\textbf{Доказательство:} \\
+	\textcolor{blue}{Необходимость}: \\
+	$F(x)$ - первообразная, $G(x)$ - первообразная. \\
+	Рассмотрим $\varphi(x)=F(x)-G(x)$ \\
+	$\varphi'(x)=F'(x)-G'(x) = f(x)-f(x)=0$ \\
+	Значит $\varphi(x)=const$ на $a,b$ (следствие из теоремы Лагранжа) \\
+	\textcolor{blue}{Достаточность}: \\
+	$F(x)$ - первообразная и $G(x)=F(x)+C, \; C \in \mathbb{R}$ \\
+	$G'(x)=F'(x)+C'=f(x) \Rightarrow G$ - первообразная \\
+	\textbf{Следствие} \\
+	$\sqsupset f$ - имеет первообразных на $a,b$, тогда $\int f(x)dx = \{F(x)+C,\; C \in \mathbb{R} \}$ \\
+	\textcolor{red}{Будем писать}: \\
+	$\int f(x)dx=F(x)+C$, $f(x)$ - подынтегральная функция, $F(x)$ - подынтегральное выражение, $dx$ - показывает, по какой функции происходит интегрирование. \\
+	\textbf{Договоримся}: \\
+	1)$\int dF(x)=F(x)+C$ \\
+	2)$(\int f(x)dx)'=f(x)$ \\
+	\textbf{У любой ли функции существует первообразная?} \\
+	$F(x) = \begin{cases}
+		x^2 \sin \frac{1}{x}, x \neq 0 \\
+		0, x=0
+	\end{cases} \\
+	F'(x)=\begin{cases}
+		2x\sin \frac{1}{x} - \cos \frac{1}{x}, x \neq 0 \\
+		0, x=0
+	\end{cases}$ \\
+	Рассмотрим функцию: \\
+	sign$x = \begin{cases}
+		1, x>0 \\
+		0, x=0 \\
+		-1, x<0
+	\end{cases}$ \\
+	По теореме Дарбу у данной функции нет производной на $a,b$. \\
+	\textbf{Теорема.} \\
+	Если $f \in C (a,b)$, то $\exists$ первообразная функция $f$ на $a,b$ \\
+	Таблица неопределенных интегралов \\
+	\begin{center}
+	\begin{tabular}{| l | l |}
+		\hline 
+		$\int 0 dx$ & $C$ \\
+		\hline
+		$\int x^{\alpha}$ & $\frac{x^{\alpha+1}}{\alpha+1} + C$ \\
+		\hline 
+		$\int \frac{dx}{x}$ & $\ln|x| + C$ \\
+		\hline 
+		$\int \sin x dx$ & $\cos x + C$ \\
+		\hline 
+		$\int \cos x dx$ & $-\sin x + C$ \\
+		\hline 
+		$\int \frac{dx}{\sin^2 x}$ & $-\cot x + C$ \\
+		\hline 
+		$\int \frac{dx}{\cos^2 x}$ & $\tan x + C$ \\
+		\hline 
+		$\int a^x dx$ & $\frac{a^x}{\ln a} + C$ \\
+		\hline 
+		$\int \frac{dx}{a^2 + x^2} $ & $\frac{1}{a}\arctan \frac{x}{a} + C$ \\
+		\hline 
+		$\int \frac{dx}{x^2 - a^2} $ & $\frac{1}{2a} \ln |\frac{x-a}{x+a}|+C$ \\
+		\hline 
+		$\int \frac{dx}{\sqrt{a^2-x^2}}$ & $\arcsin\frac{x}{a} + C$ \\
+		\hline 
+		$\int \frac{dx}{\sqrt{x^2 \pm a^2}}$ & $\ln |x+\sqrt{x^2 \pm a^2}| + C$ \\
+		\hline  
+	\end{tabular} \\
+	\end{center}
+	$\int \frac{dx}{x} = \ln |x| + C \; (?)$ = \\
+	= $\ln|x| = \begin{cases}
+		C_1, x>0 \\
+		C_2, x<0
+	\end{cases}$ \\
+	\subsection{Свойства неопределенного интеграла. Формула замены переменной и интегрирование по частям.} 
+	\textbf{Теорема(о линейности)} \\
+	$\sqsupset f,g$ имеют первообразные на промежутке $a,b$. Тогда \\
+	1)$f+g$ - имеет первообразную на $a,b$, причем $\int (f+g) dx = \int f dx + \int g dx$ \\
+	2)$\alpha f$ имеет первообразную на $a,b$, причем (если $\alpha \neq 0$), \\
+	$\int \alpha f dx = \alpha \int f dx$ \\
+	3) Если $\alpha \neq 0 , \beta \neq 0 $, то : \\
+	$\int(\alpha f + \beta g)dx = \alpha \int f dx + \beta \int g dx$ \\
+	$F(x)$ - первообразная f(x) \\
+	$G(x)$ - первообразная g(x) \\
+	$f+g$ - первообразная $F(x) + G(x)$ \\
+	1) $\{F(x) + G(x)+ C,\; C \in \mathbb{R} \} = \{F(x) + C_1, \; C_1 \in \mathbb{R} \}$ \fbox{+} $\{ G(x) + C_2, \; C_2 \in \mathbb{R} \}$ \\
+	$\{ $\frownie$  \}$ \fbox{+} $\{ $\smiley$ \}$ = $\{ $\smiley$ + $\frownie$  \; \}$ \\
+	$\sqsupset H \in$ ЛЧ $\iff \; H(x) = F(x) + G(x) + C = (F(x) + \frac{C}{2}) + (G(x) + \frac{C}{2}) \in $ ПЧ, ч.т.д. \\
+	$\sqsupset H(x) \in$ ПЧ. $H(x) = F(x) + C_1 + G(x) + C_2 = F(x) + G(X) + (C_1 + C_2) \in $ ЛЧ  \\
+	\textbf{Теорема(о замене переменной)} \\
+	$\sqsupset f$ имеет первообразную на $a,b$, а функция $\varphi:$<a,b>$ \rightarrow $<a,b>$, \varphi$ - диф. на <a,b> \\
+	Тогда $\int f(x)dx = \int f(\varphi(t))\cdot \varphi'(t)dt$\\
+	\textbf{Доказательство:} \\
+	$\int f(x)dx = F(x) + C = F(\varphi(t)) + C= \int f(\varphi(t))\cdot \varphi'(t) dt$ \\
+	\textbf{Теорема(интегрирование по частям.)} \\
+	$\sqsupset f,g$ - диф.мы на <a,b> и $\exists$ первообразная функции $f\cdot g'$ на <a,b>, тогда: \\
+	$\int f'gdx=fg-\int fg'dx$ \\
+	\textbf{Доказательство.} \\
+	$(f\cdot g)' = f'g + fg' \Rightarrow f'g=(fg)'-fg'$ \\
+	$\int f'gdx = fg - \int fg'dx$, ч.т.д. \\
+	\subsection{Интегрирование рациональных дробей} 
+	\textbf{Определение.} \\
+	Рациональной дробью называется функция следующего вида \\
+	$\frac{P_n(x)}{Q_m(x)},$ где $P_n(x)$ и $Q_n(x)$ - многочлены степени $n$ и $m$, соответственно. \\
+	\textbf{Определение.} \\
+	Рациональная дробь называется правильной, если $m>n$. \\
+	\textbf{Лемма.} \\
+	$\sqsupset \frac{P_n(x)}{Q_n(x)}$ - неправильная рациональная дробь. Тогда $\exists$ представление $\frac{P_n(x)}{Q_m(x)} = P_{n-m}(x)+\frac{\overline{P(x)}}{Q_m(x)}$ \\
+	\textbf{Теорема.} \\
+	$\sqsupset P_n(x)$ - многочлен с вещественными коэффициентами, приведенный. \\
+	Тогда: \\
+	$P_n(x) = (x-a_1)^{k_1} -\cdot \dots \cdot (x-a_t)^{k_t} \cdot (x^2 + b_1x + c_1)^{{l_1}} \cdot \dots \cdot (x^2 + b_rx + c_r )^{l_r}$, где $\forall i \in \mathbb{N}, i\leqslant r: \; b^2_i - 4c_i < 0$ \\
+	$\underset{i=1}{\overset{t}{\Sigma}}k_i + 2\underset{i=1}{\overset{r}{\Sigma}}l_i = n$ \\
+	\textbf{Лемма 1} \\
+	$\sqsupset \frac{P_n(x)}{Q_m(x)}$ - правильная дробь, причем многочлен по $Q_m(x) = (x-a)^k \widetilde{Q}(x)$, где $\widetilde{Q}(a) \neq 0$ - многочлен\\
+	$\exists!$ разложение: \\
+	$\frac{P_n(x)}{Q_m(x)} = \frac{A}{(x-a)^k} + \frac{\widetilde{P}(x)}{(x-a)^{k-1}\widetilde{Q}(x)}$ \\
+	\textbf{Доказательство.} \\
+	Рассмотрим разность $\frac{P_n{x}}{Q_m(x)} - \frac{A}{(x-a)^k} = \frac{P_n(x)(x-a)^k - A\cdot Q_m(x)}{(x-a)^k \cdot Q_m(x)} = \frac{P_n(x) - A \cdot \widetilde{Q}(x)}{(x-a)^k\widetilde{Q}(x)}$ \\
+	Подберем $A$ так, чтобы $a$ - было корнем числителя. Тогда: \\
+	 $P_n(a) - A\cdot \widetilde{Q}(a) = 0 \Rightarrow A = \frac{P_n(a)}{\widetilde{Q}(a)}$  \\
+	 Тогда $\frac{P_n(x)}{Q_m(x)}=\frac{A}{(x-a)^k} + \frac{\widetilde{P}(x)}{(x-a)^k\widetilde{Q}(x)}$ \\
+	 \textbf{Единственность.} \\
+	 Пусть существует 2 разложения. Тогда одновременно выполняются следующие условия: \\
+	 $\frac{A_1}{(x-a)^k}+\frac{\widetilde{P}_1(x)}{(x-a)^{k-1}\widetilde{Q}(x)} = \frac{A_2}{(x-a)^k} + \frac{\widetilde{P}_2(x)}{(x-a)^{k-1}\widetilde{Q}(x)}$ \\
+	 $A_1 \widetilde{Q}(x) + \widetilde{P}_1(x)(x-a) = A_2 \widetilde{Q}(x) + \widetilde{P}_2(x)(x-a)$ \\
+	 Подставим $x=a$ \\
+	 $A_1\widetilde{Q}(a) = A_2 \widetilde{Q}(a) \Rightarrow A_1 = A_2$ \\
+	 Отсюда $\widetilde{P}_1(x) = \widetilde{P}_2(x)$ \\
+	 \textbf{Лемма 2} \\
+	 $\sqsupset \frac{P_n(x)}{Q_m(x)}$ - правильная дробь, причем $Q_m(x)=(x^2 + bx + c)^k \cdot \widetilde{Q}(x)$, где $\alpha \pm i \beta$ - корни $x^2 + bx + c$, \\
+	 $b^2-4c<0, \widetilde{Q}(\alpha \pm i \beta ) \neq 0$, тогда существует единственное разложение: \\
+	 $\frac{P_n(x)}{Q_m(x)} = \frac{Ax+B}{(x^2+bx+c)^k} + \frac{\widetilde{P}(x)}{(x^2+bx+c)^{k-1}\widetilde{Q}(x)}$ \\
+	 \textbf{Доказательство.} \\
+	 Рассмотрим разность: \\
+	 $\frac{P_n(x)}{Q_m(x)} - \frac{Ax+B}{(x^2+bx+c)^k} = \frac{P_n(x) - (Ax+B)\widetilde{Q}(x)}{(x^2+bx+c)^k\widetilde{Q}(x)}$ \\
+	 Хочу: $\alpha + i \beta$ - корень числителя \\
+	 $P_n(\alpha + i \beta) = P_1 + i P_2$ \\
+	 $\widetilde{Q}(\alpha + i\beta) = \widetilde{Q}_1 + i \widetilde{Q}_2$, $\; \widetilde{Q}^2_1 + \widetilde{Q}^2_2 \neq 0$  \\
+	 $P_1 + i P_2 - (A(\alpha + i \beta) + B)(\widetilde{Q}_1 + i \widetilde{Q}_2) = 0$ \\
+	 $ \begin{cases}
+	 	P_1 + A\alpha \widetilde{Q}_1 - A \beta \widetilde{Q}_2 + B \widetilde{Q}_1=0 \\ 
+	 	P_2 - A \beta \widetilde{Q}_1 - A \alpha \widetilde{Q}_2 - B \widetilde{Q}_2 = 0
+	 \end{cases}
+ 	$ \\
+ 	$\begin{cases}
+ 		A(\beta \widetilde{Q}_2 - \alpha \widetilde{Q}_1) - B \widetilde{Q}_1 = -P_1 \\
+ 		A(-\beta \widetilde{Q}_1 - \alpha \widetilde{Q}_2) - B \widetilde{Q}_2 = -P_2
+ 	\end{cases}$ \\
+	$\Delta = \begin{vmatrix}
+			\beta \widetilde{Q}_2 - \alpha \widetilde{Q}_1 & -\widetilde{Q}_1 \\
+			-\beta \widetilde{Q}_1 - \alpha \widetilde{Q}_2 & -\widetilde{Q}_2
+		\end{vmatrix} = -\beta \widetilde{Q}^2_2 + \alpha \widetilde{Q}_1 \widetilde{Q}_2 - \beta \widetilde{Q}^2_1 - \alpha \widetilde{Q}_1\widetilde{Q}_2 = -\beta(\widetilde{Q}^2_1 + \widetilde{Q}^2_2) \neq 0 \Rightarrow$ система имеет единственное решение \\
+	Если $\alpha + i \beta$ - корень, то и $P_n(x) - (Ax+B)\widetilde{Q}(x)$, то и $\alpha - i \beta$ - корень, значит,\\ $P_n(x) - (Ax+B)\widetilde{Q}(x) = (x^2 + bx + c)\widetilde{P}(x)$, дальше сокращаем. Единственность доказывается аналогично. \\
+	\textbf{Теорема(о разложении рациональной дроби)} \\
+	$\sqsupset \frac{P_n(x)}{Q_m(x)}$ - рациональная дробь, причем $Q_m(x) = (x-a_1)^{k_1} \cdot \dots \cdot (x-a_t)^{k_t} \cdot (x^2 + b_1x + c_1)^{l_1} \cdot \dots \cdot (x^2 + b_rx + c_r)^{l_r}$, $\forall i \in \mathbb{N}, i\leqslant r: b^2_i < 4c_i < 0$ \\
+	Тогда существует единственное представление вида: \\
+	$\frac{P_n(x)}{Q_m(x)}=P_{n-m}(x) + \\
+	\begin{matrix}
+		\frac{A_{11}}{(x-a_1)^{k_1}} + \frac{A_{12}}{(x-a_1)^{k_1-1}} + \dots + \frac{A_{1k_1}}{(x-a_1)} \\
+		\dots \\
+		\frac{A_{t1}}{(x-a_t)^{k_t}} + \frac{A_{t2}}{(x-t)^{k_t-1}} + \dots + \frac{A_{tk_t}}{(x-a_t)} + \\
+		\dots \\
+		\frac{B_{11}x+C_{11}}{(x^2+b_1x+c_1)^{l_1}}+\frac{B_{12}x+C_{12}}{(x^2+b_1x+c_1)^{l_1-1}} + \dots + \frac{B_{1l_1}x+C_{1l_1}}{(x^2+b_1x+c_1)} \\
+		\dots \\
+		\frac{B_{r1}x+C_{r1}}{(x^2+b_{r}x+C_{r}^{l_r}} + \dots + \frac{B_{rl_r}+C_{rl_r}}{(x^2+b_rx+c_r)}
+	\end{matrix}$ \\
+	\textbf{Доказательство} \\
+	По индукции: \\
+	$\underset{i=1}{\overset{t}{\Sigma}}\underset{j=1}{\overset{k_i}{\Sigma}}\frac{A_{ij}}{(x-a)^{k_i-j+1}} + \underset{i=1}{\overset{r}{\Sigma}}\underset{j=0}{\overset{l_i}{\Sigma}}\frac{B_{ij}x+C_{ij}}{(x^2+b_ix+c_i)^{b_i-j+1}}$ \\
+	Типы дробей: \\
+	1 тип: $\frac{1}{(x-a)^k}$ \\
+	2 тип:$\frac{Ax+B}{(x^2+px+q)^k}$\\
+	$\int \frac{Ax+B}{x^2++px+q}dx = \int \frac{Ax+B}{(x+\frac{p}{2})^2 + q - \frac{p^2}{4}}dx = | (x+\frac{p}{2})^2 = t^2, a^2=q-\frac{p^2}{4}| =\int \frac{At+B-\frac{Ap}{2}}{a^2+t^2}dx = A\int \frac{tdt}{t^2+a^2} + (B-\frac{Ap}{2})\int \frac{dt}{t^2+a^2} = \frac{A}{2}\ln(t^2 + a^2) + (B-\frac{Ap}{2}\cdot \frac{1}{a}\arctan \frac{t}{a})$ \\
+	$\int \frac{Ax+B}{(x^2 +px + q)^k}dx = A\int \frac{tdt}{(t^2+a^2)^k} + (B-\frac{Ap}{2})\int\frac{dt}{(t^2+a^2)^k} = \frac{A}{2}\frac{1}{(t^2+a^2)^{k-1}(1-k)}+(B-\frac{Ap}{2})I_k$ \\
+	$I_k = \int \frac{dt}{(t^2+a^2)^k}=\frac{1}{a^2}\int \frac{a^2}{(t^2+a^2)^k} = \frac{1}{a^2} \int \frac{(a^2 + t^2)-t^2}{(t^2+a^2)^k}d= \frac{1}{a^2} \int \frac{dt}{(t^2-a^2)^{k-1}} - \frac{1}{a^2}\int\frac{t^2dt}{(t^2-a^2)^k} = 
+	\begin{vmatrix}
+		 u=t \\
+		 du=dt\\
+		 dv=\frac{t}{(t^2+a^2)^k}dt \\
+		 v = \frac{1}{2(t^2+a^2)^{k-1}(1-k)}
+	\end{vmatrix} = \frac{1}{a^2}I_{k-1} - \frac{1}{a^2} (\frac{t}{2(1-k)(t^2+a^2)^{k-1}} - \frac{1}{2(1-k)}I_{k-1})$ \\
+	Итого: $I_k = \frac{1}{a^2}\frac{1-2k}{2(1-k)}I_{k-1}-\frac{t}{2a^2(1-k)(t^2+a^2)^{k-1}}, \; I_1 = \frac{1}{a}\arctan\frac{t}{a}+C$
+	\section{лекция}
+	\subsection{Понятие определенного интеграла Римана}
+	\textbf{Определение.} \\
+	Разбиением $\tau$ на отрезки $[a,b]$ назовем набор точке $a=x_0<x_1<x_2<\dots<x_n=b$ \\
+	\textbf{Определение.} \\
+	Оснащенном разбиением $(\tau,t)$ отрезка $[a,b]$ назовем его разбиение $\tau$ вместе с выбранными точками  \\ 
+	$\xi:x_{i-1}\leqslant\xi_i\leqslant x_i, \; i \in \{1,\dots,n \}$ \\
+	\fbox{NB}$\;$: \\
+	Обозначения: рассмотрим $[a,b]$, $(\tau,\xi)$ $\Delta_i=[x_{i-1},x_i] \;$ $\Delta x_i = x_i-x_{i-1} \;$ !$\xi_i \in \Delta_i$ \\
+	\textbf{Определение.} \\
+	$\sqsupset f$ задана на $[a,b]$ - его основное оснащенное разбиение. Интегральной суммой для $f$ на $[a,b]$ с оснащенным разбиением $(\tau,\xi)$ называется \\
+	$$\boxed{\sigma_{\tau}(f,\xi)=\underset{i=1}{\overset{n}{\Sigma}}f(\xi_i)\Delta x_i }$$ \\
+	\textbf{Определение.} \\
+	$\sqsupset \tau$ - разбиение $[a,b]$. Мелкостью разбиения $\tau$(рангом равного дробления) называется $\lambda(\tau)=\underset{i \in \{1,\dots,n \}}{\max\Delta x_i}$ \\
+	\textbf{Определение.} \\
+	Число $I$ называется интегралом Римана от функции $f$ по отрезку $[a,b]$, если \\
+	$\forall \varepsilon > 0 \; \exists \delta = \delta(\epsilon) > 0: \forall \tau: \; \lambda(\tau)<\delta$ и $\forall \varepsilon \Rightarrow |\sigma_{\tau}(f,\xi)-I|<\varepsilon$ \\
+	Можно называть пределом интегральной суммы \\
+	$\lim\limits_{\lambda_{\tau}\rightarrow0}G_{\tau}(f,\xi)=I:=\int_{b}^{a}fdx$ \\
+	\textbf{Теорема(об эквивалентом определении интеграла)}: \\
+	Число $I$ - интеграл Римана от функции $f$ по $[a,b]$ тогда и только тогда, когда:\\
+	$$\boxed{\forall(\tau_n,\xi_n):\lambda(\tau_n)\underset{n\rightarrow \infty}{\rightarrow} 0 \Rightarrow \sigma_{\tau_n}(f,\xi_n))\underset{n \rightarrow \infty}{\rightarrow} I}$$\\
+	\textbf{Определение.} \\
+	Функция, для которой существует интеграл Римана по отрезку $[a,b]$ называется интегрируемой(по Риману на $[a,b]$) и обозначается $f \in \mathbb{R}[a,b]$ \\
+	\underline{Договоримся}:  \\
+	$\int^a_af(x)dx=0$ \\
+	$\int^b_af(x)dx=-\int^a_bf(x)dx$\\
+	\subsection{Суммы Дарбу и их свойства. Интегралы Дарбу}
+	\textbf{Определение.} \\
+	$\sqsupset f$ задана на отрезке $[a,b]$.  $\tau$ - разбиение $[a,b]$. Введем понятия верхней суммы Дарбу -  \\
+	$\underline{S}_{\tau}(f) = \underset{i=0}{\overset{n}{\Sigma}}M_i\Delta x_i$, где $M_i = \sup f$  \\
+	$\overline{S}_{\tau}(f)=\underset{i=0}{\overset{n}{\Sigma}}m_i\Delta x_i$, где $M_i = \inf f$ \\
+	Называются верхний и нижней суммы Дарбу. \\
+	\fbox{NB} $\;$: \\ $$\boxed{\overline{S}_{\tau}(f)\leqslant\sigma_{\tau}(f,\xi) \leqslant \underline{S}_{\tau}(f)} $$ \\
+	$f$ ограничена $\iff$ конечны $\underline{S}_{\tau}(f),\overline{S}_{\tau}(f)$ \\
+	$$\boxed{\overline{S}_{\tau}(f) = \underset{\xi}{\min} \; \sigma_{\tau}(f,\xi)}$$\\
+	$$\boxed{\underline{S}_{\tau}(f) = \underset{xi}{\max} \; \sigma_{\tau}(f,\xi)}$$ \\
+	\textbf{Лемма.} \\
+	$\underline{S}_{\tau}(f) = \underset{\xi}{\inf}\sigma_{\tau}(f,\xi)$ \\
+	$\overline{S}_{\tau}(f)=\underset{\xi}{\sup} \sigma_{\tau}(f,\xi)$ \\
+	\textbf{Доказательство}: \\
+	1) $\sqsupset f$ ограничена на $[a,b]$. Докажем, что $\underline{S}_{\tau}(f)= \underset{\xi}{\sup}\sigma_{\tau}$. \\
+	$\sqsupset \epsilon>0.$ Согласно определению супремума: \\
+	$\exists \xi_i:M_i-\frac{\epsilon}{b-a}<f(\xi_i)$ \\
+	$\underset{i=1}{\overset{n}{\Sigma}}(M_i-\frac{\epsilon}{b-a})\Delta x_i < \underset{i=1}{\overset{n}{\Sigma}} f(\xi_i)\Delta x_i$  \\
+	$\underline{S}_{\tau}(f)-\epsilon<\underset{i=1}{\overset{n}{\Sigma}}f(\xi_i)\Delta x_i$. \\
+	Кроме того, $\sigma_{\tau} \leqslant \underline{S}_{\tau}(f)$. Итого, $\underline{S}_{\tau}(f)=\underset{\xi}{\sup}\; \sigma_{\tau}(f,\xi)$ \\
+	\textbf{Определение.} \\
+	$\sqsupset \tau -$ разбиение отрезка $[a,b]$, $\tau'$ называется измельчением $\tau$, если $\tau < \tau'$. \\
+	\textbf{Лемма.} \\
+	$\sqsupset \tau'$ - измельчение $\tau$, тогда: \\
+	$$\boxed{\underline{S}_{\tau'}\leqslant \underline{S}_{\tau}}$$
+	$$\boxed{\overline{S}_{\tau'} \geqslant \overline{S}_{\tau}}
+	$$
+	Докажем, что $\underline{S}_{\tau'} \leqslant \underline{S}_{\tau}$ \\
+	Достаточно рассмотреть $\tau' = \tau \cup \{ *\}$ \\
+	$\sqsupset x_{j-1}<x^*<x_j$	\\
+	$\underline{S}_{\tau}(f)=\underset{i=1}{\overset{n}{\Sigma}}M_i\Delta x_i = \underset{\underset{i \neq j}{i=1}}{\overset{n}{\Sigma}}M_i\Delta x_i + M_j \Delta x_j$ \fbox{$\geqslant$} \\
+	Рассмотрим $M_j \Delta x_j = M_j(x_j-x_{j-i}) = M_j(x_j - x^* + x^* - x_{j-i}) = M_j(x_j-x^*)+M_j(x^*-x_{j-i}) \geqslant\\
+	\geqslant \underset{[x^*,x_j]}{\widetilde{M}=\sup f}, \; \underset{[x_{j-i},x^*]}{\widetilde{\widetilde{M}}=\sup f}$\\
+	\fbox{$\geqslant$} $\underset{\underset{i \neq j}{i=1}}{\overset{n}{\Sigma}}M_i\Delta x_i+\widetilde{M}(x_j-x^*)+\widetilde{\widetilde{M}}(x^*-x_{j-1})=\underline{S}_{\tau'}(f)$ \\
+	\textbf{Лемма.} \\
+	$\forall \tau',\tau''$ - разбиения на $[a,b]$, тогда \\
+	$$\boxed{\overline{S}_{\tau'}\leqslant\underline{S}_{\tau''}}$$ \\
+	\textbf{Доказательство.} \\
+	$\tau = \tau'\cup \tau''$ \\
+	$\overline{S}_{\tau'}\leqslant \overline{S}_{\tau}\leqslant\underline{S}_{\tau}\leqslant\underline{S}_{\tau''}$ \\
+	\textbf{Определение.} \\
+	$I^*(f)=\inf \; \underline{S}_{\tau}$ - верхний \\
+	$I_{*}(f)=\sup \; \overline{S}_{\tau}$ - нижний \\
+	\fbox{NB} :\\
+	$\forall \tau',\tau''$ - разбиения $\Rightarrow $\\
+	$$\boxed{\overline{S}_{\tau'}(f) \leqslant I_{*}(f)\leqslant I^*(f)\leqslant \underline{S}_{\tau''}(f)}$$ \\
+	\subsection{Необходимое условие интегрируемости функции, критерий Дарбу и Римана}
+	\textbf{Теорема(необходимое условие)}. \\
+	$\sqsupset f \in \mathbb{R} [a,b]$. \\
+	\textbf{Доказательство} \\
+	$\sqsupset f$ не ограничено сверху, тогда из этого следует, что $\underline{S}_{\tau}(f)=+\infty$ \\
+	$\forall M \exists \xi: \sigma_{\xi}(f,\xi)>M \Rightarrow \sigma_{\tau}(f,\xi)$ не имеет конечного предела. \\
+	\textbf{Теорема(критерий Дарбу)}: \\
+	$\sqsupset f$ задана на $[a,b]$. $f \in \mathbb{R}[a,b] \iff \lim\limits_{\lambda(\tau)\rightarrow 0}(S_{\tau}(f)-\overline{S}_{I}(f)) \iff \forall \varepsilon > 0 \exists \delta=\delta(\varepsilon)>0: \; \forall \tau: \; \lambda(\tau)<\delta \Rightarrow \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)$ \\
+	\textbf{Доказательство.}  \\
+	"$\Rightarrow$": $\sqsupset \varepsilon>0 \; \exists \delta=\delta(\varepsilon): \forall \tau: \lambda(\tau) < \delta \forall \xi \Rightarrow |\sigma_{tau}(f,\xi)-I|<\frac{\varepsilon}{3} \iff I - \frac{\epsilon}{3}<\sigma_{\tau}(f,\xi)<I+\frac{\epsilon}{3} \iff  \\ \iff
+	\lefteqn{
+		\overbrace{
+				\phantom{
+						I-\frac{\varepsilon}{3}<\sigma_{\tau}(f,\xi)
+						}
+				 }^{\underset{\xi}{\inf}}
+			}
+		I-\frac{\varepsilon}{3}<\underbrace{\sigma_{\tau}(f,\xi)<I+\frac{\varepsilon}{3}}_{\underset{\xi}{\sup}}$ \\
+		$$\begin{gathered}\underline{S}_{\tau}(f)\leqslant I+\frac{\varepsilon}{3} \\ \overline{S}_{\tau}(f)\geqslant I-\frac{\varepsilon}{3}
+		\end{gathered} \iff \begin{gathered}
+		\underline{S}_{\tau}(f)\leqslant I+\frac{\varepsilon}{3} \\
+		\overline{S}_{\tau}(f)\leqslant\frac{\varepsilon}{3}-I
+	\end{gathered} \; (+)$$ 
+	$$\boxed{\underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)\leqslant\frac{2\epsilon}{3}\leqslant\varepsilon}$$ \\
+	"$\Leftarrow$"$ \lim\limits_{\lambda(\tau)\rightarrow 0}(\underline{S}_{\tau}(f)-\overline{S}_{\tau}(f))=0 \Rightarrow \underline{S}_{\tau}(f)$ и $\overline{S}_{\tau}(f)$ ограничены, т.е. $f$ ограничена. \\
+	$\sqsupset \varepsilon>0\; \exists \delta: \; \forall \tau : \lambda(\tau)<\delta \Rightarrow \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)<\varepsilon$ \\
+	Согласно выведенному,  \\
+	$$\boxed{\begin{gathered}
+	I^*\leqslant \underline{S}_{\tau}(f) \\
+	I_*\geqslant \overline{S}_{\tau}(f)
+	\end{gathered} \iff \begin{gathered}
+	I^*(f)\leqslant\underline{S}_{\tau}(f)\\
+	-I_*(f)\leqslant-\overline{S}_{\tau}(f)
+	\end{gathered} (+)}$$ 
+	$$\boxed{0 \leqslant I^*(f)-I_*(f) \leqslant \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)<\varepsilon}$$ 
+	Таким образом, $I^*(f)=I_*(f)=I$ \\
+	$\sqsupset \varepsilon>0 \; \exists \delta > 0: \; \forall \tau < \delta \Rightarrow \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)<\varepsilon$ \\
+	$$\begin{cases}
+	\overline{S}_{\tau}(f)\leqslant\sigma_{\tau}(f,\xi)\leqslant\underline{S}_{\tau}(f) \\
+	\overline{S}_{\tau}\leqslant I \leqslant \underline{S}_{\tau}(f)
+	\end{cases}$$ 
+	$$\Updownarrow$$
+	$$
+	\begin{cases}
+		\overline{S}_{\tau}(f) \leqslant \sigma_{\tau}(f,\xi) \leqslant \underline{S}_{\tau}(f) \\
+		-\underline{S}_{\tau}(f) \leqslant -I \leqslant -\overline{S}_{\tau}(f)
+	\end{cases}\; (+) 
+	$$=
+	$$\overline{S}_{\tau}(f)-\underline{S}_{\tau}(f)\leqslant\sigma_{\tau}(f,\xi)-I\leqslant\underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)$$ 
+	$$\Updownarrow$$ 
+	$$\boxed{|\sigma_{\tau}(f,\xi)-I|\leqslant\underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)<\varepsilon} $$
+	\textbf{Определение.} \\
+	Колебанием функции $f$ на множестве $E$ назовем \\
+	$$\boxed{\omega(f,E)=\underset{x,y \in E}{\sup(f(x)-f(y))}}$$
+	\fbox{NB} $\;$: \\ \\
+	$\omega(f,E)=\underset{E}{\sup f}-\underset{E}{\inf f}$ \\
+	\textbf{Теорема(Дарбу)}: \\
+	$\sqsupset f$ задана на $[a,b]$, $f \in \mathbb{R}[a,b],$ тогда: \\
+	$$\boxed{\lim\limits_{\lambda(\tau)}\sum_{i=0}^{n}\omega(f,\Delta i)\Delta x_i=0}$$
+	$$\boxed{\forall \varepsilon>0 \; \exists \delta: \; \forall \tau: \; \lambda(\tau)<\delta \Rightarrow \sum_{i=1}^{n}\omega(f,\Delta_i)\Delta x_i<\varepsilon}$$
+	\textbf{Доказательство.} \\
+	$$\underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)=\sum_{i=1}^{n}M_i \Delta x_i - \sum_{i=1}^{n}m_i \Delta x_i = \sum_{i=1}^{n}(M_i-m_1)\Delta x_i=\sum_{i=1}^{n}\omega(f,\Delta_i)\Delta x_i$$
+	\textbf{Теорема(Критерий Римана)}: \\
+	$\sqsupset f$ задана на $[a,b]$ \\
+	$f \in \mathbb{R}[a,b] \iff \forall \varepsilon>0 \; \exists \tau: \; \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)<\varepsilon$ \\
+	$$\boxed{\forall \varepsilon>0 \; \exists\tau: \; \sum_{i=1}^{n}\omega(f,\Delta_i)\Delta x_i<\varepsilon}$$ \\
+	\textbf{Доказательство.} \\
+	\underline{Необходимость}. Следует из критерия Дарбу \\
+	\underline{Достаточность}. \\
+	$$\sqsupset \varepsilon>0 \; \exists \tau: \; \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)$$ \\
+	$f$ - ограничена. 
+	$$
+	\begin{cases}
+		I_*(f)\geqslant\overline{S}_{\tau}(f)\\
+		I^*(f)\leqslant \underline{S}_{\tau} 
+	\end{cases} \; (-)$$
+	$$\boxed{0 \geqslant I^*(f)-I_*(f)\leqslant \underline{S}_{\tau}(f)-\overline{S}_{\tau}(f)}$$
+	\textbf{Вывод:} \\
+	$$\boxed{I^*(f)=I_*(f)=I}$$
+	Далее аналогично доказательству критерию Дарбу \\
+	\textbf{Теорема:}\\
+	$\sqsupset f$ задана на $[a,b]$. \\
+	$f \in \mathbb{R}[a,b] \iff f$ ограничена и $I_*(f)=I^*(f)=\int_{a}^{b}f
+	dx$
+\end{document}
